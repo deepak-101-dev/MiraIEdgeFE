@@ -61,6 +61,14 @@ This project is a modern React admin dashboard built with Vite and Tailwind CSS.
 - **User & post management** with moderation features.
 - **Data analytics** and visualization for actionable insights.
 
+### Deployment
+
+This project is deployed and available online:
+
+👉 **Try it out here:** [http://miraiedge.deepaksingh.cc/](http://miraiedge.deepaksingh.cc/)
+
+You can explore all features and the live dashboard at the above link.
+
 ---
 
 ## Setup Instructions
