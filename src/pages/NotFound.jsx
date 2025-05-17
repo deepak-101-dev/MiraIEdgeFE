@@ -36,23 +36,6 @@ const NotFound = () => {
             <FontAwesomeIcon icon={faArrowLeft} className="mr-2" />
             Back to Dashboard
           </Link>
-
-          <div className="flex space-x-4">
-            <Link
-              to="/search"
-              className="flex-1 inline-flex items-center justify-center px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-            >
-              <FontAwesomeIcon icon={faSearch} className="mr-2" />
-              Search
-            </Link>
-            <Link
-              to="/"
-              className="flex-1 inline-flex items-center justify-center px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-            >
-              <FontAwesomeIcon icon={faHome} className="mr-2" />
-              Home
-            </Link>
-          </div>
         </div>
       </div>
     </div>

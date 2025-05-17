@@ -1,11 +1,12 @@
 // src/components/Layout.jsx
 
+import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import MobileNav from "./MobileNav";
 
-export default function Layout() {
+const Layout = () => {
   return (
     <div className="h-screen flex flex-col bg-gray-100 dark:bg-[#0e1217]">
       {/* Fixed Header */}
@@ -30,4 +31,6 @@ export default function Layout() {
       </div>
     </div>
   );
-}
+};
+
+export default Layout;

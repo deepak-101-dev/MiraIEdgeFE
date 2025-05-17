@@ -6,11 +6,11 @@ const PostCard = ({ post }) => {
       {/* Image Container */}
       <div className="relative h-48 w-full">
         <img
-          src={`https://picsum.photos/seed/${post.id}/800/400`}
+          src={post.imageUrl}
           alt={post.title}
           className="w-full h-full object-cover"
         />
-        {/* Purple gradient overlay */}
+        {/* Blue gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#5fa5fa]/60 via-[#5fa5fa]/10 to-black/90"></div>
         <div className="absolute bottom-0 left-0 p-4">
           <h2 className="text-xl font-semibold text-white mb-1 line-clamp-2 drop-shadow-lg">

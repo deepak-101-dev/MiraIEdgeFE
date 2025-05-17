@@ -49,7 +49,7 @@ const SearchResult = () => {
               className="w-full h-full object-cover"
             />
             {/* Purple gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-red-500/30 via-red-500/10 to-red/80"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#5fa5fa]/60 via-[#5fa5fa]/10 to-black/90"></div>
             <div className="absolute bottom-0 left-0 p-6">
               <h1 className="text-3xl font-bold text-white mb-2 drop-shadow-lg">
                 {post.title}
@@ -74,7 +74,7 @@ const SearchResult = () => {
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-300 rounded-full text-sm"
+                    className="px-3 py-1 bg-[#5fa5fa] dark:bg-[#5fa5fa]/30 text-black-600 dark:text-gray-300 rounded-full text-sm"
                   >
                     #{tag}
                   </span>

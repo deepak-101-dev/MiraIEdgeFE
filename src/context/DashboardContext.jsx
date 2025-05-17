@@ -15,16 +15,48 @@ export const DashboardProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lastFetchTime, setLastFetchTime] = useState(null);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  const preloadImages = async (posts) => {
+    const imagePromises = posts.map((post) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = `https://picsum.photos/seed/${post.id}/800/400`;
+        img.onload = () => resolve();
+        img.onerror = () => reject();
+      });
+    });
+
+    try {
+      await Promise.all(imagePromises);
+      setImagesLoaded(true);
+    } catch (error) {
+      console.error("Error preloading images:", error);
+      // Even if some images fail to load, we'll still show the posts
+      setImagesLoaded(true);
+    }
+  };
 
   const fetchPosts = async () => {
     try {
+      setLoading(true);
       const response = await fetch("https://dummyjson.com/posts");
       if (!response.ok) {
         throw new Error("Failed to fetch posts");
       }
       const data = await response.json();
-      setPosts(data.posts);
+
+      // Add image URLs to each post
+      const postsWithImages = data.posts.map((post) => ({
+        ...post,
+        imageUrl: `https://picsum.photos/seed/${post.id}/800/400`,
+      }));
+
+      setPosts(postsWithImages);
       setLastFetchTime(Date.now());
+
+      // Preload images
+      await preloadImages(postsWithImages);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -48,7 +80,7 @@ export const DashboardProvider = ({ children }) => {
 
   const value = {
     posts,
-    loading,
+    loading: loading || !imagesLoaded, // Show loading until both data and images are ready
     error,
     refetch: fetchPosts,
   };
