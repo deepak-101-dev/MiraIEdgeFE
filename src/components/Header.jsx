@@ -1,5 +1,3 @@
-// src/components/Header.jsx
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBell,
@@ -21,7 +19,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user has a theme preference in localStorage
+    // theme preference in localStorage
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
       setIsDarkMode(true);
@@ -113,7 +111,7 @@ export default function Header() {
     `}
               </style>
             </button>
-            {/* Hide these buttons on mobile as they're in the bottom nav */}
+            {/* buttons in the bottom nav */}
             <div className="hidden md:flex items-center space-x-4">
               <button
                 onClick={() => navigate("/reports")}

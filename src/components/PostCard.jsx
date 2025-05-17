@@ -24,6 +24,19 @@ const PostCard = ({ post }) => {
         <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
           {post.body}
         </p>
+        {/* Tag Pills */}
+        {post.tags && post.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-gray-600 dark:text-white rounded-full text-sm"
+              >
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
         <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1">

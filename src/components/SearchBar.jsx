@@ -28,7 +28,7 @@ const SearchBar = ({ showMobileSearch, setShowMobileSearch }) => {
     } else if (type === "post") {
       navigate(`/search/result/post/${item.id}`);
     } else if (type === "tag") {
-      navigate(`/tags/${encodeURIComponent(item)}`);
+      navigate(`/search/result/tag/${encodeURIComponent(item)}`);
     }
   };
 

@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useUsers } from "../context/UsersContext";
 import { useDashboard } from "../context/DashboardContext";
+import PostCard from "../components/PostCard";
 
 const SearchResult = () => {
   const { type, id } = useParams();
@@ -13,6 +14,44 @@ const SearchResult = () => {
   // Find the post if the result is a post
   const post =
     type === "post" ? posts.find((p) => p.id === parseInt(id)) : null;
+
+  // Handle tag search
+  if (type === "tag" && id) {
+    const tagName = decodeURIComponent(id);
+    const taggedPosts = posts.filter((post) =>
+      post.tags?.some((tag) => tag.toLowerCase() === tagName.toLowerCase())
+    );
+    return (
+      <div className="space-y-6">
+        <div className="bg-white dark:bg-[#1c1f26] rounded-lg shadow-md p-6">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+            Posts tagged with #{tagName}
+          </h1>
+          <p className="text-gray-600 dark:text-gray-300">
+            Found {taggedPosts.length} posts with this tag
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {taggedPosts.map((post) => (
+            <PostCard
+              key={post.id}
+              post={{
+                ...post,
+                imageUrl: `https://picsum.photos/seed/${post.id}/800/400`,
+              }}
+            />
+          ))}
+        </div>
+        {taggedPosts.length === 0 && (
+          <div className="bg-white dark:bg-[#1c1f26] rounded-lg shadow-md p-6 text-center">
+            <p className="text-gray-600 dark:text-gray-300">
+              No posts found with the tag #{tagName}
+            </p>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   if (type === "user" && user) {
     return (
