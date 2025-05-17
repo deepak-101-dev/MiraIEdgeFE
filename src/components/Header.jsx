@@ -80,8 +80,8 @@ export default function Header() {
           AdminDash
         </div>
 
-        {/* Search Bar */}
-        <div className="flex-1 max-w-2xl mx-8" ref={searchRef}>
+        {/* Search Bar - Hidden on mobile */}
+        <div className="hidden md:flex flex-1 max-w-2xl mx-8" ref={searchRef}>
           <div className="relative">
             <input
               type="text"
@@ -188,8 +188,8 @@ export default function Header() {
             )}
         </div>
 
-        {/* Icons Group */}
-        <div className="flex items-center space-x-6">
+        {/* Icons Group - Modified for mobile */}
+        <div className="flex items-center space-x-4 md:space-x-6">
           <button
             onClick={toggleTheme}
             className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
@@ -200,24 +200,31 @@ export default function Header() {
               className="text-gray-600 dark:text-gray-300 text-xl"
             />
           </button>
+          {/* Notification icon - visible on all screens */}
           <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors">
             <FontAwesomeIcon
               icon={faBell}
               className="text-gray-600 dark:text-gray-300 text-xl"
             />
           </button>
-          <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors">
-            <FontAwesomeIcon
-              icon={faChartBar}
-              className="text-gray-600 dark:text-gray-300 text-xl"
-            />
-          </button>
-          <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors">
-            <FontAwesomeIcon
-              icon={faUser}
-              className="text-gray-600 dark:text-gray-300 text-xl"
-            />
-          </button>
+          {/* Hide these buttons on mobile as they're in the bottom nav */}
+          <div className="hidden md:flex items-center space-x-4">
+            <button
+              onClick={() => navigate("/reports")}
+              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+            >
+              <FontAwesomeIcon
+                icon={faChartBar}
+                className="text-gray-600 dark:text-gray-300 text-xl"
+              />
+            </button>
+            <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors">
+              <FontAwesomeIcon
+                icon={faUser}
+                className="text-gray-600 dark:text-gray-300 text-xl"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </header>

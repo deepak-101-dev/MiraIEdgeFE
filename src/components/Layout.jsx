@@ -3,6 +3,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import MobileNav from "./MobileNav";
 
 export default function Layout() {
   return (
@@ -12,13 +13,20 @@ export default function Layout() {
 
       {/* Main Content Area with Sidebar */}
       <div className="flex-1 flex overflow-hidden">
-        {/* Fixed Sidebar */}
-        <Sidebar />
+        {/* Desktop Sidebar - Hidden on mobile */}
+        <div className="hidden lg:block h-full">
+          <Sidebar />
+        </div>
 
         {/* Scrollable Content Area */}
-        <main className="flex-1 overflow-y-auto p-6">
+        <main className="flex-1 overflow-y-auto p-6 pb-20 lg:pb-6">
           <Outlet />
         </main>
+      </div>
+
+      {/* Mobile Navigation - Visible only on mobile/tablet */}
+      <div className="lg:hidden">
+        <MobileNav />
       </div>
     </div>
   );

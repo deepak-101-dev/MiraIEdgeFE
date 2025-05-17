@@ -18,7 +18,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 ease-in-out
+      className={`bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 ease-in-out h-full
         ${isCollapsed ? "w-20" : "w-64"}`}
     >
       <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
