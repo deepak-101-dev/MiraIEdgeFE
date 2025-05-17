@@ -82,7 +82,10 @@ const SearchBar = ({ showMobileSearch, setShowMobileSearch }) => {
               {searchResults.posts.length > 0 && (
                 <div className="p-2">
                   <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 px-2 py-1">
-                    {searchQuery} in posts
+                    <span className="text-blue-600 dark:text-blue-400">
+                      {searchQuery}
+                    </span>{" "}
+                    in posts
                   </div>
                   {searchResults.posts.map((post) => (
                     <button
@@ -105,7 +108,10 @@ const SearchBar = ({ showMobileSearch, setShowMobileSearch }) => {
               {searchResults.users.length > 0 && (
                 <div className="p-2 border-t border-gray-200 dark:border-gray-700">
                   <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 px-2 py-1">
-                    {searchQuery} in users
+                    <span className="text-blue-600 dark:text-blue-400">
+                      {searchQuery}
+                    </span>{" "}
+                    in users
                   </div>
                   {searchResults.users.map((user) => (
                     <button
@@ -135,7 +141,10 @@ const SearchBar = ({ showMobileSearch, setShowMobileSearch }) => {
               {searchResults.tags.length > 0 && (
                 <div className="p-2 border-t border-gray-200 dark:border-gray-700">
                   <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 px-2 py-1">
-                    {searchQuery} in tags
+                    <span className="text-blue-600 dark:text-blue-400">
+                      {searchQuery}
+                    </span>{" "}
+                    in tags
                   </div>
                   {searchResults.tags.map((tag, index) => (
                     <button

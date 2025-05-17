@@ -1,19 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useUsers } from "../context/UsersContext";
 import Pagination from "../components/Pagination";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 const USERS_PER_PAGE = 9;
 
 const Users = () => {
   const { users, loading, error } = useUsers();
-  console.log(users);
   const [currentPage, setCurrentPage] = useState(1);
+  const mainContainerRef = useRef(null);
 
   // Calculate pagination
   const totalPages = Math.ceil(users.length / USERS_PER_PAGE);
   const startIndex = (currentPage - 1) * USERS_PER_PAGE;
   const endIndex = startIndex + USERS_PER_PAGE;
   const currentUsers = users.slice(startIndex, endIndex);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    mainContainerRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   if (loading) {
     return (
@@ -34,14 +40,17 @@ const Users = () => {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-          Users
-        </h1>
-        <p className="text-gray-600 dark:text-gray-300">
-          Manage your users and their permissions here.
-        </p>
+    <div className="space-y-6" ref={mainContainerRef}>
+      <div className="bg-white dark:bg-[#0e1217] rounded-lg shadow-md p-6">
+        <div className="flex items-center space-x-3">
+          <FontAwesomeIcon
+            icon={faUser}
+            className="text-blue-600 dark:text-blue-400 text-2xl"
+          />
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+            Users
+          </h1>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -51,7 +60,7 @@ const Users = () => {
             className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700"
           >
             {/* User Header with Avatar */}
-            <div className="relative bg-gradient-to-r from-blue-500 to-purple-600 p-6">
+            <div className="relative bg-gradient-to-r from-[#2664eb] to-[#4F85F9] p-6">
               <div className="flex items-center space-x-4">
                 <div className="relative">
                   <img
@@ -59,7 +68,6 @@ const Users = () => {
                     alt={`${user.name.first} ${user.name.last}`}
                     className="w-20 h-20 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"
                   />
-                  <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-400 rounded-full border-2 border-white dark:border-gray-800"></div>
                 </div>
                 <div>
                   <h2 className="text-xl font-semibold text-white">
@@ -121,15 +129,6 @@ const Users = () => {
                   {user.location.postcode}
                 </p>
               </div>
-
-              <div className="flex justify-end space-x-2 pt-4">
-                <button className="px-4 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors">
-                  View Profile
-                </button>
-                <button className="px-4 py-2 text-sm font-medium text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 rounded-lg transition-colors">
-                  Message
-                </button>
-              </div>
             </div>
           </div>
         ))}
@@ -139,7 +138,7 @@ const Users = () => {
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
-        onPageChange={setCurrentPage}
+        onPageChange={handlePageChange}
       />
     </div>
   );

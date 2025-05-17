@@ -72,7 +72,7 @@ export default function Header() {
           >
             <FontAwesomeIcon
               icon={isDarkMode ? faSun : faMoon}
-              className="text-gray-600 dark:text-gray-300 text-xl group-hover:rotate-45 transition-transform duration-300"
+              className="text-gray-600 dark:text-gray-300 text-xl group-hover:rotate-[-45deg] transition-transform duration-300"
             />
           </button>
           {/* Notification icon - visible on all screens */}

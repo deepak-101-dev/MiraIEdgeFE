@@ -13,6 +13,15 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useUsers } from "../context/UsersContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChartBar,
+  faVenusMars,
+  faChartLine,
+  faGlobe,
+  faUserFriends,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Reports = () => {
   const { users } = useUsers();
@@ -109,25 +118,57 @@ const Reports = () => {
   }));
 
   // Colors for charts
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+  const COLORS = ["#37BEF0", "#2D6AF8", "#8B04DD", "#D040DE"];
 
   return (
     <div className="space-y-6">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-          User Analytics
-        </h1>
-        <p className="text-gray-600 dark:text-gray-300">
-          Total Users: {userStats.totalUsers}
-        </p>
+      <div className="bg-white dark:bg-[#0e1217] rounded-lg shadow-md p-6">
+        <div className="flex items-center space-x-3">
+          <FontAwesomeIcon
+            icon={faChartBar}
+            className="text-blue-600 dark:text-blue-400 text-2xl"
+          />
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
+            Reports & Analytics
+          </h1>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Total Users Card */}
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <div className="flex items-center space-x-3 mb-4">
+            <FontAwesomeIcon
+              icon={faUsers}
+              className="text-blue-600 dark:text-blue-400 text-xl"
+            />
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+              Total Users
+            </h2>
+          </div>
+          <div className="flex items-center justify-center h-[200px]">
+            <div className="text-center">
+              <div className="text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                {userStats.totalUsers}
+              </div>
+              <div className="text-gray-600 dark:text-gray-300">
+                Registered Users
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Gender Distribution (Pie Chart) */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
-            Gender Distribution
-          </h2>
+          <div className="flex items-center space-x-3 mb-4">
+            <FontAwesomeIcon
+              icon={faVenusMars}
+              className="text-blue-600 dark:text-blue-400 text-xl"
+            />
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+              Gender Distribution
+            </h2>
+          </div>
           <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -159,9 +200,15 @@ const Reports = () => {
 
         {/* Age Distribution (Bar Chart) */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
-            Age Distribution
-          </h2>
+          <div className="flex items-center space-x-3 mb-4">
+            <FontAwesomeIcon
+              icon={faChartLine}
+              className="text-blue-600 dark:text-blue-400 text-xl"
+            />
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+              Age Distribution
+            </h2>
+          </div>
           <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={ageData}>
@@ -170,7 +217,7 @@ const Reports = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="value" fill="#8884d8" name="Number of Users" />
+                <Bar dataKey="value" fill="#2D6AF8" name="Number of Users" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -178,9 +225,15 @@ const Reports = () => {
 
         {/* Top Countries (Bar Chart) */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
-            Top 3 Countries
-          </h2>
+          <div className="flex items-center space-x-3 mb-4">
+            <FontAwesomeIcon
+              icon={faGlobe}
+              className="text-blue-600 dark:text-blue-400 text-xl"
+            />
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+              Top 3 Countries
+            </h2>
+          </div>
           <div className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={countryData}>
@@ -189,7 +242,7 @@ const Reports = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="value" fill="#82ca9d" name="Number of Users" />
+                <Bar dataKey="value" fill="#37BEF0" name="Number of Users" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -197,9 +250,15 @@ const Reports = () => {
 
         {/* Average Age by Country (List) */}
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
-            Average Age by Country
-          </h2>
+          <div className="flex items-center space-x-3 mb-4">
+            <FontAwesomeIcon
+              icon={faUserFriends}
+              className="text-blue-600 dark:text-blue-400 text-xl"
+            />
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+              Average Age by Country
+            </h2>
+          </div>
           <div className="space-y-4">
             {userStats.topCountries.map((country) => (
               <div

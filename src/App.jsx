@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
@@ -10,6 +11,7 @@ import TagPosts from "./pages/TagPosts";
 import { DashboardProvider } from "./context/DashboardContext";
 import { UsersProvider } from "./context/UsersContext";
 import { SearchProvider } from "./context/SearchContext";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
                   element={<SearchResult />}
                 />
                 <Route path="tags/:tagName" element={<TagPosts />} />
+                <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>
           </Router>
