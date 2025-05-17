@@ -7,7 +7,7 @@ import MobileNav from "./MobileNav";
 
 export default function Layout() {
   return (
-    <div className="h-screen flex flex-col bg-gray-100 dark:bg-gray-900">
+    <div className="h-screen flex flex-col bg-gray-100 dark:bg-[#0e1217]">
       {/* Fixed Header */}
       <Header />
 

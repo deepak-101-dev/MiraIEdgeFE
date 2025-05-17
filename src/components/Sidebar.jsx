@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
-  faRss,
+  faHome,
   faUsers,
   faChartBar,
 } from "@fortawesome/free-solid-svg-icons";
@@ -11,14 +11,14 @@ import { NavLink } from "react-router-dom";
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const menuItems = [
-    { icon: faRss, label: "Dashboard", path: "/" },
+    { icon: faHome, label: "Dashboard", path: "/" },
     { icon: faUsers, label: "Users", path: "/users" },
     { icon: faChartBar, label: "Reports", path: "/reports" },
   ];
 
   return (
     <div
-      className={`bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 ease-in-out h-full
+      className={`bg-white dark:bg-[#0e1217] shadow-lg transition-all duration-300 ease-in-out h-full border-r border-white dark:border-[#2d323b]
         ${isCollapsed ? "w-20" : "w-64"}`}
     >
       <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
@@ -28,7 +28,7 @@ const Sidebar = () => {
           </span>
         )}
         <button
-          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-[#0e1217] transition-colors"
           onClick={() => setIsCollapsed(!isCollapsed)}
         >
           <FontAwesomeIcon
@@ -47,8 +47,8 @@ const Sidebar = () => {
               flex items-center p-3 rounded-lg cursor-pointer transition-colors
               ${
                 isActive
-                  ? "bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300"
+                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#0e1217]"
               }
             `}
           >

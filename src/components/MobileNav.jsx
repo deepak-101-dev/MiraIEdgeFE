@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faRss,
+  faHome,
   faUsers,
   faChartBar,
   faUser,
@@ -10,14 +10,14 @@ import {
 
 const MobileNav = () => {
   const menuItems = [
-    { icon: faRss, label: "Dashboard", path: "/" },
+    { icon: faHome, label: "Dashboard", path: "/" },
     { icon: faUsers, label: "Users", path: "/users" },
     { icon: faChartBar, label: "Reports", path: "/reports" },
     { icon: faUser, label: "Account", path: "/account" },
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+    <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#1c1f26] border-t border-gray-200 dark:border-gray-700">
       <div className="flex justify-around items-center h-16">
         {menuItems.map((item, index) => (
           <NavLink
