@@ -91,7 +91,27 @@ export default function Header() {
                 className="text-gray-600 dark:text-gray-300 text-xl"
               />
               {/* Notification badge */}
-              <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+              <span
+                className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"
+                style={{
+                  animation: "pulse 1.5s ease-in-out infinite",
+                }}
+              ></span>
+
+              <style>
+                {`
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.5);
+          opacity: 0.6;
+        }
+      }
+    `}
+              </style>
             </button>
             {/* Hide these buttons on mobile as they're in the bottom nav */}
             <div className="hidden md:flex items-center space-x-4">

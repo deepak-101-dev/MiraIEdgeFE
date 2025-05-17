@@ -56,8 +56,6 @@ const SearchResult = () => {
               </h1>
               <div className="flex items-center space-x-4 text-white/90">
                 <span>Post ID: {post.id}</span>
-                <span>•</span>
-                <span>User ID: {post.userId}</span>
               </div>
             </div>
           </div>

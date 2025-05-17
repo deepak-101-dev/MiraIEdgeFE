@@ -28,7 +28,7 @@ const MobileNav = () => {
               ${
                 isActive
                   ? "text-blue-600 dark:text-blue-400"
-                  : "text-gray-600 dark:text-gray-400"
+                  : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-blue-900/10"
               }
             `}
           >

@@ -25,7 +25,6 @@ const PostCard = ({ post }) => {
           {post.body}
         </p>
         <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-          <span>Post ID: {post.id}</span>
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1">
               <span>👍</span>

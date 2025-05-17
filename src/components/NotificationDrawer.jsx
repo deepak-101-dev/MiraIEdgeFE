@@ -14,20 +14,6 @@ const NotificationDrawer = ({ isOpen, onClose }) => {
 
   const notifications = [
     {
-      id: 1,
-      title: "New User Registration",
-      message: "John Doe has registered on the platform",
-      time: "5 minutes ago",
-      read: false,
-    },
-    {
-      id: 2,
-      title: "System Update",
-      message: "System maintenance scheduled for tomorrow",
-      time: "1 hour ago",
-      read: true,
-    },
-    {
       id: 3,
       title: "Test Route",
       message: "Clickig on this navigate to an unavailable route",
